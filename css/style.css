@@ -1,0 +1,548 @@
+/* style.css */
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff8f0;
+  color: #4a4a4a;
+}
+
+/* Хедер */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #a13333;
+  padding: 10px 20px;
+  box-shadow: 0 3px 10px rgba(165, 101, 63, 0.5);
+  position: relative;
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  /* gap: 10px; */
+  color: #f7e4c3;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-shadow: rgba(0, 0, 0, 0.6);
+}
+.logo-link {
+  text-decoration: none;
+  color: #f7e4c3;
+  display: flex;
+  align-items: center;
+  text-shadow: rgba(0, 0, 0, 0.923);
+}
+
+.logo-part {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #2f1d1afd;
+}
+
+/* Іконка бургер-меню (кекс) */
+.burger {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.burger svg.cupcake-icon {
+  width: 100%;
+  height: 100%;
+  fill: #f7e4c3;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
+}
+.burger:hover {
+  transform: scale(1.1);
+}
+.nav ul {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 20px;
+  background-color: #8c4f2ba2;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.nav ul li a {
+  color: #fdebd3; /* Початковий колір тексту в меню */
+  text-decoration: none; /* Без стандартного підкреслення */
+  position: relative; /* Для розміщення підкреслення */
+  padding-bottom: 5px; /* Відступ знизу для підкреслення */
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: #fdebd3; /* Колір підкреслення */
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav ul li a:hover,
+.nav ul li button:hover {
+  color: #fff1de; /* Колір тексту при наведенні — як у вас зараз */
+}
+
+.nav ul li a:hover::after,
+.nav ul li button:hover::after {
+  width: 100%; /* Підкреслення на всю ширину */
+}
+
+/* Щоб кнопки меню теж мали це підкреслення */
+.nav ul li button {
+  position: relative;
+  padding-bottom: 5px;
+  background: none;
+  border: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #fdebd3;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav ul li button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: #fdebd3;
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+/* Навігаційне меню */
+@media screen and (max-width: 767px) {
+  .nav ul {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #8c4f2ba2;
+    border-radius: 0;
+    box-shadow: none;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .nav ul {
+    display: none;
+  }
+  .nav ul.show {
+    display: flex;
+  }
+  .menu {
+    display: block;
+    max-width: 900px;
+    margin: 20px auto;
+    background: #fffefb;
+    padding: 15px 12px;
+    box-shadow: 0 5px 18px rgba(165, 101, 63, 0.15);
+    font-size: 1.15rem;
+    color: #5c4a36;
+    line-height: 1.6;
+  }
+}
+
+.nav ul.show {
+  /* display: flex; */
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.nav ul li {
+  padding: 15px 25px;
+  text-align: center;
+}
+.nav ul li::marker {
+  display: none;
+}
+
+.nav ul li a,
+.nav ul li button {
+  color: #fdebd3;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav ul li a:hover,
+.nav ul li button:hover {
+  color: #fff1de;
+}
+
+/* Затінення фону */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.923);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+  z-index: 5;
+}
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Слайдер */
+.slider {
+  position: relative;
+  max-width: 950px;
+  margin: 25px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(165, 101, 63, 0.3);
+  background-color: #fff8f0;
+}
+
+.slides {
+  position: relative;
+  height: 75vh;
+  width: 100%;
+}
+
+.slides img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 75vh;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slides img.active {
+  opacity: 1;
+  position: relative;
+}
+
+/* Кнопки слайдера */
+.slider .prev,
+.slider .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #a5653f;
+  color: #fdebd3;
+  border: none;
+  font-size: 24px;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgb(0 0 0 / 0.2);
+  user-select: none;
+  transition: background-color 0.3s;
+  z-index: 10;
+}
+
+.slider .prev:hover,
+.slider .next:hover {
+  background-color: #7a3f1a;
+}
+
+.slider .prev {
+  left: 15px;
+}
+
+.slider .next {
+  right: 15px;
+}
+
+/* Точки під слайдером */
+.dots {
+  text-align: center;
+  padding: 15px 0 5px;
+}
+.dots span {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin: 0 6px;
+  background-color: #a5653f;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.dots span.active {
+  background-color: #7a3f1a;
+}
+
+/* Секції */
+.info {
+  max-width: 900px;
+  margin: 30px auto;
+  background: #fffefb;
+  padding: 30px 25px;
+  /* border-radius: 15px;*/
+  box-shadow: 0 5px 18px rgba(165, 101, 63, 0.15);
+  font-size: 1.15rem;
+  color: #5c4a36;
+  line-height: 1.6;
+}
+
+.info-btn {
+  background-color: #a5653f;
+  color: #fdebd3;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+/* Галерея */
+.gallery .gallery-wrapper {
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
+  gap: 15px;
+  margin-top: 15px;
+}
+
+/* .gallery img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+} */
+.img {
+  width: 30%;
+  aspect-ratio: 1;
+  padding: 4px;
+  object-fit: cover;
+}
+.img-box {
+  padding: 2px;
+}
+.hidden {
+  display: none;
+}
+.img-in-dialog {
+  height: 60vh;
+  width: 100%;
+}
+
+@media (max-width: 920px) {
+  .wrapper {
+    width: 100%;
+  }
+}
+
+@media (max-width: 800px) {
+  .img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .img {
+    width: 100%;
+  }
+  .img-in-dialog {
+    height: 60vh;
+    width: 100%;
+  }
+}
+/* .gallery img:hover {
+  transform: scale(1.05);
+} */
+
+/* Діалогові вікна */
+dialog[open] {
+  animation: fadeIn 0.4s ease forwards;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 5px 20px rgba(165, 101, 63, 0.4);
+  font-size: 1.1rem;
+  color: #4a3b28;
+  background: #fffefb;
+}
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+/* Форми */
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid #dcc7a0;
+  font-size: 1rem;
+  color: #4a4a4a;
+  box-sizing: border-box;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+  resize: vertical;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #a5653f;
+  outline: none;
+}
+
+textarea {
+  min-height: 100px;
+}
+input[name="submit"] {
+  background-color: #a5653f;
+  color: #fdebd3;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+input[name="submit"]:hover {
+  background-color: #7a3f1a;
+}
+
+button[type="submit"],
+button[type="button"] {
+  background-color: #a5653f;
+  color: #fdebd3;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+  background-color: #7a3f1a;
+}
+.close-dialog {
+  margin-top: 15px;
+  background-color: #9c1010a5;
+}
+/* Анімація появи */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.menu {
+  display: block;
+  max-width: 900px;
+  margin: 30px auto;
+  background: #fffefb;
+  padding: 30px 25px;
+  box-shadow: 0 5px 18px rgba(165, 101, 63, 0.15);
+  font-size: 1.15rem;
+  color: #5c4a36;
+  line-height: 1.6;
+}
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.menu-item {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+.menu-title {
+  color: #a13333;
+}
+.price {
+  font-weight: bold;
+}
+/* Для великих екранів */
+@media (min-width: 768px) {
+  .nav ul {
+    display: flex !important;
+    flex-direction: row;
+    opacity: 1 !important;
+    transform: none !important;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .burger {
+    display: none;
+  }
+
+  .gallery .grid {
+    grid-template-columns: repeat(3, 150px);
+  }
+}
+.container {
+  max-width: 320px;
+  padding: 20px 16px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+@media screen and (min-width: 1158px) {
+  .container {
+    max-width: 1158px;
+    padding: 20px;
+  }
+}

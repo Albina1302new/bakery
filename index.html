@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Det Søde Bagværk</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/script.js" defer></script>
+    <script src="./js/galerry.js" defer></script>
+    <script src="./js/form.js" defer></script>
+  </head>
+  <body>
+    <header class="header container">
+      <div class="logo">
+        <a href="./index.html" class="logo-link"
+          >Søde<span class="logo-part">Bagværk</span>
+        </a>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="#home">Hjem</a></li>
+          <li><a href="#about">Om os</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#gallery">Galleri</a></li>
+          <li><a href="#contactForm">Kontakt</a></li>
+        </ul>
+      </nav>
+      <div
+        class="burger"
+        id="burger"
+        aria-label="Menu"
+        type="button">
+       <svg class="cupcake-icon" width="40" height="40" viewBox="0 0 24 24">
+         <use href="./image/symbol-defs.svg#icon-muffin"></use>
+       </svg>
+
+      </div>
+    </header>
+
+    <div class="overlay" id="overlay"></div>
+
+    <section class="slider container" id="home">
+      <div class="slides">
+        <img src="./image/bagery-1.jpg" alt="Lækre kager" class="active" />
+        <img src="./image/bagery-10.jpg" alt="Friskbagt brød" />
+        <img src="./image/bagery-11.jpg" alt="Søde cupcakes" />
+      </div>
+      <button class="prev" aria-label="Forrige">&lt;</button>
+      <button class="next" aria-label="Næste">&gt;</button>
+      <div class="dots"></div>
+    </section>
+
+    <section class="info container" id="about">
+      <h2>Om os</h2>
+      <p>
+        Hos Det Søde Bagværk bager vi med passion og omhu hver eneste dag. Vores
+        udvalg af friskbagte kager, brød og cupcakes bringer smil til dit bord.
+        Kom og oplev den ægte smag af nybagt bagværk lavet med kærlighed.
+      </p>
+      <button class="info-btn" id="openDialog">Læs mere</button>
+
+      <dialog id="infoDialog">
+        <h3>Mere information</h3>
+        <p>
+          Vores bagere bruger kun de fineste råvarer, og vi glæder os til at
+          dele vores søde godbidder med dig. Besøg os i butikken eller bestil
+          direkte fra vores hjemmeside.
+        </p>
+        <button class="info-btn" id="closeDialog">Luk</button>
+      </dialog>
+    </section>
+    <section class="menu container" id="menu">
+      <h2 class="menu-title">Menu</h2>
+      <ul class="menu-list">
+        <li class="menu-item">
+          <h3>Chokolade Cupcake</h3>
+          <p>En lækker chokolade cupcake med chokolade frosting.</p>
+          <span class="price">25 DKK</span>
+        </li>
+        <li class="menu-item">
+          <h3>Fransk Croissant</h3>
+          <p>Sprød og smøragtig croissant, perfekt til morgenmad.</p>
+          <span class="price">20 DKK</span>
+        </li>
+        <li class="menu-item">
+          <h3>Bager Brød</h3>
+          <p>Friskbagt brød med en sprød skorpe og blød krumme.</p>
+          <span class="price">30 DKK</span>
+        </li>
+        <li class="menu-item">
+          <h3>Vanilje Cupcake</h3>
+          <p>Blød vanilje cupcake med cremet vanilje frosting.</p>
+          <span class="price">25 DKK</span>
+        </li>
+        <li class="menu-item">
+          <h3>Kage med Jordbær</h3>
+          <p>Frisk kage toppet med saftige jordbær og flødeskum.</p>
+          <span class="price">30 DKK</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="gallery container" id="gallery">
+      <h2>Galleri</h2>
+       
+      <div class="gallery-wrapper">
+        <!--   <img
+          src="./image/bagery-2.jpg"
+          alt="Chokolade cupcake"
+          class="img show-dialog"
+        />
+        <img
+          src="./image/bagery-3.jpg"
+          alt="Fransk croissant"
+          class="img show-dialog"
+        />
+        <img
+          src="./image/bagery-4.jpg"
+          alt="Bager brød"
+          class="img show-dialog"
+        />
+        <img
+          src="./image/bagery-5.jpg"
+          alt="Vanilje cupcake"
+          class="img show-dialog"
+        />
+        <img
+          src="./image/bagery-6.jpg"
+          alt="Kage med jordbær"
+          class="img show-dialog"
+        />
+        <img
+          src="./image/bagery-7.jpg"
+          alt="Chokoladekage"
+          class="img show-dialog"
+        />
+        <img
+          src="./image/bagery-8.jpg"
+          alt="Bageri udvalg"
+          class="img show-dialog"
+        />
+        <img
+          src="./image/bagery-9.jpg"
+          alt="Kager på fad"
+          class="img show-dialog"
+        />
+        <img src="./image/bagery-1.jpg" alt="" class="img show-dialog" />
+        <img src="./image/bagery-10.jpg" alt="" class="img show-dialog" /> 
+        <img src="./image/bagery-12.jpg" alt="" class="img show-dialog" /> -->
+      </div>
+      <dialog class="gallery-dialog">
+        <!-- Billede i dialogbox -->
+        <img class="img-in-dialog" />
+
+        <!-- 'Luk dialogbox' knap -->
+
+        <button class="close-dialog">Luk</button>
+      </dialog>
+    </div>
+    </section>
+
+    
+     <div class="contact container" id="contact">
+       <form id="contactForm" class="form">
+          <h2>Kontakt os</h2>
+           <input type="text" placeholder="Fornavn" required minlength="2" />
+           <input type="text" placeholder="Efternavn" required minlength="2" />
+            <input type="email" placeholder="E-mail" required />
+            <textarea
+              name="message"
+              rows="5"
+              placeholder="Din besked"
+              required
+            ></textarea>
+           <input type="submit" name="submit" value="Send"/>
+          
+       </form>
+        <div class="msg"></div>
+     </div>
+    
+
+    <dialog id="subscribeDialog">
+      <form id="subscribeForm">
+        <h2>Tilmeld dig nyhedsbrev</h2>
+        <input type="email" name="subemail" placeholder="Din e-mail" required />
+        <button type="submit">Tilmeld</button>
+      </form>
+    </dialog>
+  </body>
+</html>
