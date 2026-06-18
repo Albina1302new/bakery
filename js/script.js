@@ -74,11 +74,7 @@ closeContact.onclick = function () {
   contactDialog.close(); // Закриваємо діалог
 }; */
 
-// Попап підписки, що з'являється через 10 секунд
-const subscribeDialog = document.getElementById("subscribeDialog");
-setTimeout(function () {
-  subscribeDialog.showModal();
-}, 10000);
+
 
 // Обробка підписки
 document.getElementById("subscribeForm").onsubmit = function (event) {
